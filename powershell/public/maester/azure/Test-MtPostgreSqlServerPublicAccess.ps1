@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Azure PostgreSQL Servers have public network access disabled
 

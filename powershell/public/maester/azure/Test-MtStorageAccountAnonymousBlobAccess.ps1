@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Storage Accounts have anonymous public blob access disabled
 

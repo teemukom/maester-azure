@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Storage Accounts have public network access disabled
 

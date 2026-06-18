@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Cosmos DB accounts have public network access disabled
 

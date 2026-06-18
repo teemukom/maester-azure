@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if the management group hierarchy depth does not exceed four levels
 

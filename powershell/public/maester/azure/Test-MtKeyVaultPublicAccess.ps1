@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Key Vaults have public network access disabled
 

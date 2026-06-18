@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks for orphaned Azure resources that no longer serve an active purpose
 

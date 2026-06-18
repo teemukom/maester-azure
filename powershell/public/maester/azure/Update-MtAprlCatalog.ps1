@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Refreshes the in-memory APRL catalog for the current session from the upstream GitHub repo.
 

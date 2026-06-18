@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Returns an APRL catalog entry by GUID.
 

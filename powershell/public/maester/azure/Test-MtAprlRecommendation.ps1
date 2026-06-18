@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Runs an APRL recommendation check using a bundled Azure Resource Graph query.
 

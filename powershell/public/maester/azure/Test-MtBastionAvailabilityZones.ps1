@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Bastion hosts are deployed with multiple availability zones
 

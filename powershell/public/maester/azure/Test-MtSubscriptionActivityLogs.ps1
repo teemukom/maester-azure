@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all subscriptions have activity logs forwarded to a Log Analytics workspace, Storage account or Event Hub
 

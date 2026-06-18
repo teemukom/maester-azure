@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Azure Event Hubs namespaces have public network access disabled
 

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if every active Azure subscription has a Cost Management budget
 

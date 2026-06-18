@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Azure SQL Managed Instances have public data endpoint disabled
 

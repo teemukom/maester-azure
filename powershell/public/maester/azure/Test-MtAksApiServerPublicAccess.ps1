@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if all Azure Kubernetes Service clusters have private API server enabled
 

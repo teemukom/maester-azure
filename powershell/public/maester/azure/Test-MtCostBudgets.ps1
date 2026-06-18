@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Checks if at least one Azure Cost Management budget exists
 
