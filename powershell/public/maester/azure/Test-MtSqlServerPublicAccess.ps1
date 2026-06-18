@@ -78,7 +78,7 @@ function Test-MtSqlServerPublicAccess {
         $testResult = $nonCompliantServers.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($sqlServers.Count) SQL Servers have public network access disabled."
+            $testResultMarkdown = "Well done. All $($sqlServers.Count) SQL Servers have public network access disabled."
         }
         else {
             $testResultMarkdown = "Not all SQL Servers have public network access disabled."

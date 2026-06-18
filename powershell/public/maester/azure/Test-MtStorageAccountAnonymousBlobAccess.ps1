@@ -56,10 +56,10 @@ function Test-MtStorageAccountAnonymousBlobAccess {
         $testResult = $nonCompliantStorageAccounts.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All Storage Accounts have anonymous public blob access disabled"
+            $testResultMarkdown = "Well done. All Storage Accounts have anonymous public blob access disabled."
         }
         else {
-            $testResultMarkdown = "All of the Storage Accounts do not have anonymous public blob access disabled"
+            $testResultMarkdown = "Not all Storage Accounts have anonymous public blob access disabled."
         }
         if ($resultsMarkdown) {
             $testResultMarkdown += "`n`n**Storage account details:**`n$resultsMarkdown"

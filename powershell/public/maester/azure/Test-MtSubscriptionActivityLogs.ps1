@@ -14,6 +14,7 @@
     https://maester.dev/docs/commands/Test-MtSubscriptionActivityLogs
 #>
 function Test-MtSubscriptionActivityLogs {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Activity logs is an inherently plural Azure concept.')]
     [CmdletBinding()]
     [OutputType([bool])]
     param(

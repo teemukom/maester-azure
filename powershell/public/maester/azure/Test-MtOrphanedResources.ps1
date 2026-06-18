@@ -19,6 +19,7 @@
     https://maester.dev/docs/commands/Test-MtOrphanedResources
 #>
 function Test-MtOrphanedResources {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Orphaned resources is an inherently plural concept.')]
     [CmdletBinding()]
     [OutputType([bool])]
     param(
@@ -31,6 +32,9 @@ function Test-MtOrphanedResources {
 
     $orphanedResources = @()
     $resultsMarkdown = ""
+    $queryErrors = @()
+
+    Write-Verbose "Checking for orphaned Azure resources"
 
     # --- Unattached Managed Disks ---
     try {
@@ -49,7 +53,7 @@ Resources
         }
     }
     catch {
-        Write-Warning "Failed to query unattached managed disks: $($_.Exception.Message)"
+        $queryErrors += "Unattached managed disks: $($_.Exception.Message)"
     }
 
     # --- Unassociated Standard Public IP Addresses ---
@@ -69,7 +73,7 @@ Resources
         }
     }
     catch {
-        Write-Warning "Failed to query unassociated public IP addresses: $($_.Exception.Message)"
+        $queryErrors += "Unassociated public IP addresses: $($_.Exception.Message)"
     }
 
     # --- Empty App Service Plans ---
@@ -90,7 +94,7 @@ Resources
         }
     }
     catch {
-        Write-Warning "Failed to query empty App Service Plans: $($_.Exception.Message)"
+        $queryErrors += "Empty App Service Plans: $($_.Exception.Message)"
     }
 
     # --- Disk Snapshots with No Existing Source Disk ---
@@ -115,7 +119,7 @@ Resources
         }
     }
     catch {
-        Write-Warning "Failed to query disk snapshots: $($_.Exception.Message)"
+        $queryErrors += "Disk snapshots: $($_.Exception.Message)"
     }
 
     $testResult = $orphanedResources.Count -eq 0
@@ -129,6 +133,11 @@ Resources
         if ($resultsMarkdown) {
             $testResultMarkdown += "`n`n**Orphaned Resources:**`n$resultsMarkdown"
         }
+    }
+
+    if ($queryErrors.Count -gt 0) {
+        $testResultMarkdown += "`n`n> **Warning:** $($queryErrors.Count) resource query/queries failed and were skipped — results may be incomplete.`n"
+        $queryErrors | ForEach-Object { $testResultMarkdown += "> - $_`n" }
     }
 
     Add-MtTestResultDetail -Investigate -Result $testResultMarkdown

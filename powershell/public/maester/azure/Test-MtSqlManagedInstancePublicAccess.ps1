@@ -78,7 +78,7 @@ function Test-MtSqlManagedInstancePublicAccess {
         $testResult = $nonCompliantInstances.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($sqlManagedInstances.Count) SQL Managed Instances have public data endpoint disabled."
+            $testResultMarkdown = "Well done. All $($sqlManagedInstances.Count) SQL Managed Instances have public data endpoint disabled."
         }
         else {
             $testResultMarkdown = "Not all SQL Managed Instances have public data endpoint disabled."

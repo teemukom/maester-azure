@@ -92,7 +92,7 @@ ResourceContainers
 
     if ($deepManagementGroups.Count -eq 0) {
         $testResult = $true
-        $testResultMarkdown = "All management groups are within the recommended hierarchy depth.`n`n"
+        $testResultMarkdown = "Well done. All management groups are within the recommended hierarchy depth.`n`n"
         $testResultMarkdown += "- **Total Management Groups**: $($allManagementGroups.Count)`n"
         $testResultMarkdown += "- **Maximum Depth Found**: $maxDepthFound levels`n"
         $testResultMarkdown += "- **Maximum Allowed Depth**: $maxAllowedDepth levels"

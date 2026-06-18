@@ -17,6 +17,7 @@
     https://maester.dev/docs/commands/Test-MtBastionAvailabilityZones
 #>
 function Test-MtBastionAvailabilityZones {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Availability zones is an inherently plural Azure concept.')]
     [CmdletBinding()]
     [OutputType([bool])]
     param(
@@ -76,7 +77,7 @@ function Test-MtBastionAvailabilityZones {
         $testResult = $nonCompliantHosts.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($bastionHosts.Count) Bastion hosts have multiple availability zones."
+            $testResultMarkdown = "Well done. All $($bastionHosts.Count) Bastion hosts have multiple availability zones."
         }
         else {
             $testResultMarkdown = "Not all Bastion hosts have multiple availability zones."

@@ -68,7 +68,7 @@ function Test-MtWafPolicyPreventionMode {
     }
     elseif ($nonCompliantWAFPolicies.Count -eq 0) {
         $testResult = $true
-        $testResultMarkdown = "All WAF Policies are in Prevention mode."
+        $testResultMarkdown = "Well done. All WAF Policies are in Prevention mode."
     }
     else {
         $testResult = $false

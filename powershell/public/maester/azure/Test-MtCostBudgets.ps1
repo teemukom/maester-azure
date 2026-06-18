@@ -17,6 +17,7 @@
     https://maester.dev/docs/commands/Test-MtCostBudgets
 #>
 function Test-MtCostBudgets {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Budgets is an inherently plural concept for cost management.')]
     [CmdletBinding()]
     [OutputType([bool])]
     param(
@@ -39,6 +40,7 @@ function Test-MtCostBudgets {
     }
 
     $budgetCount = @($budgets).Count
+    Write-Verbose "Found $budgetCount Cost Management budget(s)"
     $budgetsWithAlerts = @()
     $budgetsWithoutAlerts = @()
 
@@ -83,7 +85,7 @@ function Test-MtCostBudgets {
     $testResult = $budgetCount -gt 0
 
     if ($testResult) {
-        $testResultMarkdown = "Found $budgetCount Cost Management budget(s). $(@($budgetsWithAlerts).Count) have enabled alert notifications."
+        $testResultMarkdown = "Well done. Found $budgetCount Cost Management budget(s). $(@($budgetsWithAlerts).Count) have enabled alert notifications."
     }
     else {
         $testResultMarkdown = "No Cost Management budgets found. Configure at least one budget to monitor and control spend."

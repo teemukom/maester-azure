@@ -78,7 +78,7 @@ function Test-MtEventHubPublicAccess {
         $testResult = $nonCompliantNamespaces.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($eventHubNamespaces.Count) Event Hubs namespaces have public network access disabled."
+            $testResultMarkdown = "Well done. All $($eventHubNamespaces.Count) Event Hubs namespaces have public network access disabled."
         }
         else {
             $testResultMarkdown = "Not all Event Hubs namespaces have public network access disabled."

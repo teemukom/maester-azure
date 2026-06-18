@@ -82,7 +82,7 @@ function Test-MtStorageAccountPublicAccess {
         $testResult = $nonCompliantStorageAccounts.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($nonCompliantStorageAccounts.Count) Storage Accounts have public network access disabled."
+            $testResultMarkdown = "Well done. All $($storageAccounts.Count) Storage Accounts have public network access disabled."
         }
         else {
             $testResultMarkdown = "Some Storage Accounts do not have public network access disabled."

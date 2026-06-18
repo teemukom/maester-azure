@@ -78,7 +78,7 @@ function Test-MtAksApiServerPublicAccess {
         $testResult = $nonCompliantClusters.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($aksClusters.Count) AKS clusters have private API server enabled."
+            $testResultMarkdown = "Well done. All $($aksClusters.Count) AKS clusters have private API server enabled."
         }
         else {
             $testResultMarkdown = "Not all AKS clusters have private API server enabled."

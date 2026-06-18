@@ -78,7 +78,7 @@ function Test-MtPostgreSqlServerPublicAccess {
         $testResult = $nonCompliantServers.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($postgresqlServers.Count) PostgreSQL Flexible Servers have public network access disabled."
+            $testResultMarkdown = "Well done. All $($postgresqlServers.Count) PostgreSQL Flexible Servers have public network access disabled."
         }
         else {
             $testResultMarkdown = "Not all PostgreSQL Flexible Servers have public network access disabled."

@@ -84,7 +84,7 @@ function Test-MtKeyVaultPublicAccess {
         $testResult = $nonCompliantVaults.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($keyVaults.Count) Key vaults have public network access disabled."
+            $testResultMarkdown = "Well done. All $($keyVaults.Count) Key vaults have public network access disabled."
         }
         else {
             $testResultMarkdown = "Some Key vaults do not have public network access disabled."

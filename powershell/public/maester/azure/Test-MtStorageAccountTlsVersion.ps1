@@ -60,10 +60,10 @@ function Test-MtStorageAccountTlsVersion {
         $testResult = $nonCompliantStorageAccounts.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All Storage Accounts have supported TLS version."
+            $testResultMarkdown = "Well done. All Storage Accounts enforce a supported TLS version."
         }
         else {
-            $testResultMarkdown = "All of the Storage Accounts do not supported TLS version"
+            $testResultMarkdown = "Not all Storage Accounts enforce the latest TLS version."
         }
         if ($resultsMarkdown) {
             $testResultMarkdown += "`n`n**Storage account details:**`n$resultsMarkdown"

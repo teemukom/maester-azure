@@ -22,10 +22,11 @@
     Fetches the latest APRL catalog and updates the in-memory cache.
 
 .LINK
-    https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/
+    https://maester.dev/docs/commands/Update-MtAprlCatalog
 #>
 function Update-MtAprlCatalog {
-    [CmdletBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', 'Force', Justification = 'Force is reserved for future session-level caching logic.')]
+    [CmdletBinding(SupportsShouldProcess)]
     param(
         [switch]$Force
     )
@@ -70,7 +71,7 @@ function Update-MtAprlCatalog {
         '4f63619f-5001-439c-bacb-8de891287727'
     )
 
-    Write-Host "Fetching APRL recommendations from GitHub..." -ForegroundColor Cyan
+    Write-Verbose "Fetching APRL recommendations from GitHub..."
 
     $UpdatedCount = 0
     $FailedCount  = 0
@@ -82,7 +83,6 @@ function Update-MtAprlCatalog {
             $Yaml = $Response.Content
 
             # Parse GUIDs from YAML (simple regex — full YAML parsing would require a module)
-            $GuidMatches = [regex]::Matches($Yaml, '(?m)^- description:\s*\S|aprlGuid:\s*([0-9a-f-]{36})')
             foreach ($Match in ([regex]::Matches($Yaml, 'aprlGuid:\s*([0-9a-f-]{36})'))) {
                 $Guid = $Match.Groups[1].Value
                 if ($TrackedGuids -contains $Guid) {
@@ -97,16 +97,17 @@ function Update-MtAprlCatalog {
         }
     }
 
-    Write-Host "APRL catalog refresh complete." -ForegroundColor Green
-    Write-Host "  Tracked GUIDs found: $UpdatedCount / $($TrackedGuids.Count)" -ForegroundColor Cyan
+    Write-Verbose "APRL catalog refresh complete."
+    Write-Verbose "  Tracked GUIDs found: $UpdatedCount / $($TrackedGuids.Count)"
     if ($FailedCount -gt 0) {
         Write-Warning "  $FailedCount resource type(s) could not be fetched."
     }
-    Write-Host ""
-    Write-Host "Note: This command validates that tracked GUIDs still exist in APRL." -ForegroundColor Yellow
-    Write-Host "To update KQL queries, edit Get-MtAprlCatalogEntry.ps1 and submit a PR." -ForegroundColor Yellow
+    Write-Verbose "Note: This command validates that tracked GUIDs still exist in APRL."
+    Write-Verbose "To update KQL queries, edit Get-MtAprlCatalogEntry.ps1 and submit a PR."
 
     # Invalidate the in-memory cache so the next call to Get-MtAprlCatalogEntry
     # re-initializes from the (now potentially updated) bundled catalog.
-    $script:MtAprlCatalog = $null
+    if ($PSCmdlet.ShouldProcess('APRL in-memory catalog', 'Invalidate')) {
+        $script:MtAprlCatalog = $null
+    }
 }

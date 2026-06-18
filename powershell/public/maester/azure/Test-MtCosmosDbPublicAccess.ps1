@@ -83,7 +83,7 @@ function Test-MtCosmosDbPublicAccess {
         $testResult = $nonCompliantCosmosDBAccounts.Count -eq 0
 
         if ($testResult) {
-            $testResultMarkdown = "All $($cosmosDBAccounts.Count) Cosmos DB accounts have public network access disabled."
+            $testResultMarkdown = "Well done. All $($cosmosDBAccounts.Count) Cosmos DB accounts have public network access disabled."
         }
         else {
             $testResultMarkdown = "Some Cosmos DB accounts do not have public network access disabled."

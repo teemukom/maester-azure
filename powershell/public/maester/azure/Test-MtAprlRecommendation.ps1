@@ -19,7 +19,7 @@
     Returns true if all Azure Firewalls are deployed across multiple availability zones.
 
 .LINK
-    https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/
+    https://maester.dev/docs/commands/Test-MtAprlRecommendation
 #>
 function Test-MtAprlRecommendation {
     [CmdletBinding()]
@@ -40,6 +40,8 @@ function Test-MtAprlRecommendation {
         return $null
     }
 
+    Write-Verbose "Running APRL check for GUID ${AprlGuid}: $($Rec.Title)"
+
     if (-not $Rec.HasAutomation) {
         Add-MtTestResultDetail -SkippedBecause Custom -SkippedCustomReason "This APRL recommendation requires manual verification. See $($Rec.LearnMoreUrl)"
         return $null
@@ -56,7 +58,7 @@ function Test-MtAprlRecommendation {
     $TestResult = $NonCompliant.Count -eq 0
 
     if ($TestResult) {
-        $TestResultMarkdown = "Well done! No non-compliant resources found for: **$($Rec.Title)**"
+        $TestResultMarkdown = "Well done. No non-compliant resources found for: **$($Rec.Title)**"
     }
     else {
         $TestResultMarkdown = "Found **$($NonCompliant.Count)** non-compliant resource(s) for: **$($Rec.Title)**`n`n"

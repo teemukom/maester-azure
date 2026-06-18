@@ -48,6 +48,7 @@ function Test-MtCostBudgetsCoverage {
     }
 
     $subscriptionCount = @($enabledSubscriptions).Count
+    Write-Verbose "Checking budget coverage for $subscriptionCount enabled subscription(s)"
 
     if ($subscriptionCount -eq 0) {
         Add-MtTestResultDetail -Result "No enabled subscriptions found."
@@ -77,7 +78,7 @@ function Test-MtCostBudgetsCoverage {
     $testResult = @($subscriptionsMissingCoverage).Count -eq 0
 
     if ($testResult) {
-        $testResultMarkdown = "All $subscriptionCount enabled subscription(s) have at least one Cost Management budget."
+        $testResultMarkdown = "Well done. All $subscriptionCount enabled subscription(s) have at least one Cost Management budget."
     }
     else {
         $testResultMarkdown = "$coveredCount of $subscriptionCount enabled subscription(s) have at least one Cost Management budget."
