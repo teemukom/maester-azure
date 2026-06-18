@@ -183,7 +183,14 @@
         'Test-ORCA221', 'Test-ORCA222', 'Test-ORCA223', 'Test-ORCA224', 'Test-ORCA225', 'Test-ORCA226', 'Test-ORCA227',
         'Test-ORCA228', 'Test-ORCA229', 'Test-ORCA230', 'Test-ORCA231', 'Test-ORCA232', 'Test-ORCA233', 'Test-ORCA233_1',
         'Test-ORCA234', 'Test-ORCA235', 'Test-ORCA236', 'Test-ORCA237', 'Test-ORCA238', 'Test-ORCA239', 'Test-ORCA240',
-        'Test-ORCA241', 'Test-ORCA242', 'Test-ORCA243', 'Test-ORCA244', 'Update-MaesterTests', 'Update-MtMaesterApp'
+        'Test-ORCA241', 'Test-ORCA242', 'Test-ORCA243', 'Test-ORCA244', 'Update-MaesterTests', 'Update-MtMaesterApp',
+        'Test-MtAksApiServerPublicAccess', 'Test-MtAprlRecommendation', 'Test-MtBastionAvailabilityZones',
+        'Test-MtCosmosDbPublicAccess', 'Test-MtCostBudgets', 'Test-MtCostBudgetsCoverage',
+        'Test-MtEventHubPublicAccess', 'Test-MtKeyVaultPublicAccess', 'Test-MtManagementGroupHierarchyDepth',
+        'Test-MtMySqlServerPublicAccess', 'Test-MtOrphanedResources', 'Test-MtPostgreSqlServerPublicAccess',
+        'Test-MtSqlManagedInstancePublicAccess', 'Test-MtSqlServerPublicAccess',
+        'Test-MtStorageAccountAnonymousBlobAccess', 'Test-MtStorageAccountPublicAccess', 'Test-MtStorageAccountTlsVersion',
+        'Test-MtSubscriptionActivityLogs', 'Test-MtWafPolicyPreventionMode', 'Update-MtAprlCatalog'
     )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
